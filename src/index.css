@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --red-color: #fa1f19;
+  --yellow-color: #fcdd60;
+  --blue-color: #9ac7e8;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -9,7 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fcdd60;
+  background-color: var(--blue-color);
 }
 
 code {
@@ -17,38 +23,51 @@ code {
     monospace;
 }
 
-.card-container {
-  @apply grid grid-cols-4 gap-2;
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red-color);
+  height: 100vh;
+  width: 100%;
 }
 
-.card {
-  @apply rounded-lg shadow-xl bg-white m-4
-    overflow-hidden;
-  cursor: "pointer";
-  position: relative;
+.loading {
+  @apply justify-center;
 }
 
-.card img {
-  @apply h-60 w-full object-contain pt-4;
+.search {
+  @apply flex flex-wrap justify-center content-center;
 }
 
-.card h1 {
-  @apply text-xl font-extrabold text-center p-2;
+.search img {
+  @apply basis-2/3;
 }
 
-.card-inner {
-  @apply text-center;
+.search input {
+  @apply bg-white border border-gray-500 rounded-sm text-sm p-2.5 w-1/2 mt-10;
 }
 
-.is-flipped {
-  transform: rotateY(180deg);
-  overflow: hidden;
+.search button {
+  @apply bg-white w-20 p-2.5 border-none rounded-sm text-sm ml-4 mt-10;
 }
 
-.navbar {
-  @apply grid grid-cols-4 justify-items-start content-center bg-red-600 h-16 text-2xl drop-shadow-lg;
+.results {
+  @apply grid grid-cols-4 content-center pl-14 mt-20 gap-2;
 }
 
-.navbar > {
-  @apply hover:text-white;
+.character-card {
+  @apply w-72 h-80 bg-white border-none mb-8 overflow-hidden shadow-2xl;
+}
+
+.character-header {
+  @apply grid grid-cols-1 justify-items-center;
+}
+
+.character-header h1 {
+  @apply font-semibold;
+}
+
+.character-header img {
+  @apply w-40 h-72;
 }
